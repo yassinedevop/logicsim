@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Gate Simulator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .toolbar {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 200px;
+        }
+
+        .component {
+            padding: 10px;
+            margin: 5px 0;
+            background: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .component:hover {
+            background: #d0d0d0;
+        }
+
+        #canvas {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .status {
+            margin-top: 10px;
+            padding: 10px;
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="toolbar">
+            <h3>Components</h3>
+            <div class="component" data-type="input">Input</div>
+            <div class="component" data-type="output">Output</div>
+            <div class="component" data-type="and">AND Gate</div>
+            <div class="component" data-type="or">OR Gate</div>
+            <div class="component" data-type="not">NOT Gate</div>
+            <div class="component" data-type="nand">NAND Gate</div>
+            <div class="component" data-type="nor">NOR Gate</div>
+            <div class="component" data-type="xor">XOR Gate</div>
+            <div class="status" id="status">Ready</div>
+        </div>
+        <canvas id="canvas" width="800" height="600"></canvas>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
