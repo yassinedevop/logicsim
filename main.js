@@ -36,12 +36,27 @@ class Component {
             // Draw state indicator for input/output
             ctx.fillStyle = this.state ? '#00ff00' : '#ff0000';
             ctx.beginPath();
-            ctx.arc(0, 0, 8, 0, Math.PI * 2);
+            ctx.arc(0, 0, 18, 0, Math.PI * 2);
             ctx.fill();
         } else {
-            // Draw rectangle for gates
-            ctx.fillRect(-this.width/2, -this.height/2, this.width, this.height);
-            ctx.strokeRect(-this.width/2, -this.height/2, this.width, this.height);
+            // Draw rounded rectangle for gates
+            const radius = 10; // Radius for rounded corners
+            
+            ctx.beginPath();
+            ctx.moveTo(-this.width/2 + radius, -this.height/2);
+            ctx.lineTo(this.width/2 - radius, -this.height/2);
+            ctx.arcTo(this.width/2, -this.height/2, this.width/2, -this.height/2 + radius, radius);
+            ctx.lineTo(this.width/2, this.height/2 - radius);
+            ctx.arcTo(this.width/2, this.height/2, this.width/2 - radius, this.height/2, radius);
+            ctx.lineTo(-this.width/2 + radius, this.height/2);
+            ctx.arcTo(-this.width/2, this.height/2, -this.width/2, this.height/2 - radius, radius);
+            ctx.lineTo(-this.width/2, -this.height/2 + radius);
+            ctx.arcTo(-this.width/2, -this.height/2, -this.width/2 + radius, -this.height/2, radius);
+            ctx.closePath();
+            
+            ctx.fillStyle = this.selected ? '#e0e0ff' : '#ffffff';
+            ctx.fill();
+            ctx.stroke();
         }
 
         // Draw text
